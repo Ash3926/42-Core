@@ -6,18 +6,11 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:37:01 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 13:42:02 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:47:53 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char *str)
+int	ft_isalpha(int c)
 {
-	while (*str)
-	{
-		if ((*str > 64 && *str < 91) || (*str > 96 && *str < 123))
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	return ((c > 64 && c < 91) || (c > 96 && c < 123));
 }

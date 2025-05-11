@@ -6,18 +6,11 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:00:56 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 16:01:58 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:48:43 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *c)
+int	ft_isprint(int c)
 {
-	while (*c)
-	{
-		if (*c > 31 && *c < 127)
-			c++;
-		else
-			return (0);
-	}
-	return (1);
+	return (c > 31 && c < 127);
 }

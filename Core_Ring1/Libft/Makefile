@@ -48,11 +48,11 @@ $(NAME): $(OBJS)
 	cc $(CFLAGS) $< -o $@
 
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean:
-	rm $(NAME)
-	rm $(OBJS)
+	rm -f $(NAME)
+	rm -f $(OBJS)
 
 re:	fclean all
 

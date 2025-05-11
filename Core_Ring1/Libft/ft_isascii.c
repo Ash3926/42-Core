@@ -6,18 +6,11 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:54:09 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 15:59:44 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:48:28 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int *c)
+int	ft_isascii(int c)
 {
-	while (*c)
-	{
-		if (*c >= 0 && *c < 128)
-			c++;
-		else
-			return (0);
-	}
-	return (1);
+	return (c >= 0 && c < 128);
 }

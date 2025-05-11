@@ -6,19 +6,13 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:45:42 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 15:53:17 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:47:35 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char *str)
+int	ft_isalnum(int c)
 {
-	while (*str)
-	{
-		if ((*str > 64 && *str < 91) || (*str > 96 && *str < 123)
-			|| (*str > 47 && *str < 58))
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	return ((c > 64 && c < 91)
+		|| (c > 96 && c < 123)
+		|| (c > 47 && c < 58));
 }

@@ -6,18 +6,11 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 13:44:15 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 13:45:35 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:48:11 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char *str)
+int	ft_isdigit(int c)
 {
-	while (*str)
-	{
-		if (*str > 47 && *str < 58)
-			str++;
-		else
-			return (0);
-	}
-	return (1);
+	return (c > 47 && c < 58);
 }

@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:31:18 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 14:34:14 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:39:41 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,5 +21,6 @@ void	ft_putnbr_fd(int n, int fd)
 	while (str[i])
 	{
 		write(fd, &str[i], 1);
+		i++;
 	}
 }
