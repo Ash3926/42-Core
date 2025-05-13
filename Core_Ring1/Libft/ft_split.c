@@ -61,20 +61,18 @@ char	**ft_split(char const *s, char c)
 	char	*curr_str;
 	int		i;
 	int		j;
-	int		nexsize;
 
-	arr = malloc((checksize(s, c) * sizeof(char *)) + 1);
+	arr = malloc((checksize(s, c) + 1)* sizeof(char *));
 	if (arr == NULL)
 		return (arr);
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
-		nexsize = nextsize(s, c, i);
-		if (nexsize)
+		if (nextsize(s, c, i))
 		{
-			curr_str = split_helper(s, curr_str, i, nexsize);
-			i += nexsize;
+			curr_str = split_helper(s, curr_str, i, nextsize(s, c, i));
+			i += nextsize(s, c, i);
 			arr[j++] = curr_str;
 		}
 		i++;
