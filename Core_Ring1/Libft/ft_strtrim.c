@@ -22,16 +22,6 @@ static int	check_in(char const c, char const *set)
 	return (0);
 }
 
-static int	checklen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
@@ -40,13 +30,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trimmed;
 
 	start = 0;
-	end = checklen(s1) - 1;
+	end = ft_strlen((char *)s1);
 	while (check_in(s1[start], set) && start < end)
 		start++;
 	while (check_in(s1[end], set) && end > start)
 		end--;
-	trimmed = (char *)malloc(end - start + 1);
-	if (trimmed == NULL || start == end)
+	if (start == (end - 1))
+		return (0);
+	trimmed = (char *)malloc(end - start + 2);
+	if (trimmed == NULL)
 		return (trimmed);
 	i = 0;
 	while (start <= end)
