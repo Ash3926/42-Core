@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:16:29 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/08 16:08:02 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/16 18:00:12 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dest, const void *str, size_t n)
 	unsigned char	*hold;
 	unsigned char	*source;
 
-	if (dest == NULL || (void *)str == NULL)
+	if ((dest == NULL || (void *)str == NULL) && n > 0)
 		return (NULL);
 	hold = (unsigned char *)dest;
 	source = (unsigned char *)str;

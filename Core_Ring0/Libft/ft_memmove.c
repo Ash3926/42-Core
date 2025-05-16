@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:33:44 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 18:49:42 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/16 18:02:24 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, const void *str, size_t n)
 	unsigned char	storage[10000];
 	unsigned char	*source;
 
-	if (dest == NULL || (void *)str == NULL)
+	if ((dest == NULL || (void *)str == NULL) && n > 0)
 		return (NULL);
 	hold = (unsigned char *)dest;
 	source = (unsigned char *)str;
