@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list	*ft_lstmap_helper(t_list *old_lst_node, void *(*f)(void *))
+static t_list	*ft_lstmap_helper(t_list *old_lst_node, void *(*f)(void *))
 {
 	t_list	*new_lst_node;
 
