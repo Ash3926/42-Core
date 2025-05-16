@@ -6,11 +6,11 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:02:05 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/05 16:03:06 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/14 19:18:38 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *c)
+int	ft_strlen(const char *c)
 {
 	int	len;
 

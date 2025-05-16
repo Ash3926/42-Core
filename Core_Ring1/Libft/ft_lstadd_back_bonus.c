@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/05 18:07:39 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 18:23:59 by asolomon         ###   ########.fr       */
+/*   Created: 2025/05/14 19:40:33 by asolomon          #+#    #+#             */
+/*   Updated: 2025/05/16 17:10:57 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
-	size_t	return_val;
+	t_list	*end;
 
-	i = 0;
-	while (dst[i] && i < size)
-		i++;
-	return_val = i + ft_strlen(src);
-	if (size == 0 || i == size)
-		return (return_val);
-	j = 0;
-	while (src[j] && ((i + j) < (size - 1)))
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		dst[i + j] = src[j];
-		j++;
+		end = ft_lstlast(*lst);
+		end->next = new;
 	}
-	if (i < size)
-		dst[i + j] = 0;
-	return (return_val);
 }

@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 16:54:23 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 17:45:37 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/16 16:50:47 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+// struct typedef, copy pasted
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
 // Compulsory Part 1
 int		ft_isalpha(int str);
 int		ft_isdigit(int str);
 int		ft_isalnum(int str);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_strlen(char *c);
+int		ft_strlen(const char *c);
 void	*ft_memset(void *space, int c, size_t n);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memcpy(void *dest, const void *str, size_t n);
@@ -53,5 +60,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// Bonus
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

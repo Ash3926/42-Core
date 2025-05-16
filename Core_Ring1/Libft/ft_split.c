@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:46:35 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 12:31:27 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:06:51 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,9 +18,13 @@ static int	checksize(char const *str, char c)
 	len = 0;
 	while (*str)
 	{
-		if (*str != c)
-			len++;
-		str++;
+		while (*str == c && *str)
+			str++;
+		if (!(*str))
+			return (len);
+		len++;
+		while (*str != c && *str)
+			str++;
 	}
 	return (len);
 }
@@ -62,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
-	arr = malloc((checksize(s, c) + 1)* sizeof(char *));
+	arr = malloc((checksize(s, c) + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (arr);
 	i = 0;
@@ -84,7 +88,7 @@ char	**ft_split(char const *s, char c)
 #include <stdio.h>
 int	main()
 {
-	const char	s[] = "H3y th3r3";
+	const char	s[] = "H3y th3r33!!\0";
 	char	**arr;
 	arr = ft_split(s, '3');
 	printf("%s\n", arr[0]);
