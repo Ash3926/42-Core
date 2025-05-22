@@ -29,7 +29,7 @@ int		ft_isdigit(int str);
 int		ft_isalnum(int str);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_strlen(const char *c);
+size_t	ft_strlen(const char *c);
 void	*ft_memset(void *space, int c, size_t n);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memcpy(void *dest, const void *str, size_t n);
