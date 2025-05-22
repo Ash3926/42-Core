@@ -21,10 +21,10 @@ char	*ft_strnstr(const char *main, const char *sub, size_t len)
 	subsize = 0;
 	while (sub[subsize])
 		subsize++;
-	while (main[i] && (i <= len))
+	while (main[i] && (i < len))
 	{
 		j = 0;
-		while ((main[i + j] == sub[j]) && (i + j) <= len)
+		while ((main[i + j] == sub[j]) && (i + j) < len)
 			j++;
 		if (j == subsize)
 			return ((char *)&main[i]);

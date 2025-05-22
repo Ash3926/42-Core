@@ -18,7 +18,7 @@ static int	checksize(char const *str, char c)
 	len = 0;
 	while (*str)
 	{
-		while (*str == c && *str)
+		while (*str == c)
 			str++;
 		if (!(*str))
 			return (len);
@@ -42,9 +42,10 @@ static int	nextsize(char const *str, char c, int i)
 	return (size);
 }
 
-static char	*split_helper(char const *s, char *curr_str, int i, int nexsize)
+static char	*split_helper(char const *s, int i, int nexsize)
 {
-	int	j;
+	int		j;
+	char	*curr_str;
 
 	j = 0;
 	curr_str = (char *)malloc(nexsize + 1);
@@ -59,10 +60,20 @@ static char	*split_helper(char const *s, char *curr_str, int i, int nexsize)
 	return (curr_str);
 }
 
+static void	*free_words(char **arr, int i)
+{
+	int	curr;
+
+	curr = 0;
+	while (curr < i)
+		free(arr[curr++]);
+	free(arr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	char	*curr_str;
 	int		i;
 	int		j;
 
@@ -73,13 +84,15 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (nextsize(s, c, i))
+		if (s[i] != c)
 		{
-			curr_str = split_helper(s, curr_str, i, nextsize(s, c, i));
+			arr[j] = split_helper(s, i, nextsize(s, c, i));
 			i += nextsize(s, c, i);
-			arr[j++] = curr_str;
+			if (!arr[j++])
+				return (free_arr(arr, j - 1));
 		}
-		i++;
+		else
+			i++;
 	}
 	arr[j] = NULL;
 	return (arr);

@@ -15,6 +15,7 @@ char	*ft_strchr(const char *str, int c)
 {
 	char	*holder_str;
 
+	c = c % 256;
 	holder_str = (char *)str;
 	while (*holder_str)
 	{

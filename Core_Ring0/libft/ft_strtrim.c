@@ -33,20 +33,20 @@ static char	*blank_handler(void)
 	return (trimmed);
 }
 
-static int	*num_setter(char const *s1, char const *set, int index1, int index2)
+static int	*num_setter(char const *s1, char const *set, int indexes[2])
 {
-	int	*index_arr;
+	int	index1;
+	int	index2;
 
-	index_arr = malloc(2 * sizeof(int));
-	if (index_arr == NULL)
-		return (NULL);
-	while (check_in(s1[index1], set) && (index1 < index2))
+	index1 = 0;
+	index2 = ft_strlen(s1) - 1;
+	while (check_in(s1[index1], set) && (index1 <= index2))
 		index1++;
-	while (check_in(s1[index2], set) && (index1 < index2))
+	while (check_in(s1[index2], set) && (index1 <= index2))
 		index2--;
-	index_arr[0] = index1;
-	index_arr[1] = index2;
-	return (index_arr);
+	indexes[0] = index1;
+	indexes[1] = index2;
+	return (indexes);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -54,11 +54,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		start;
 	int		end;
 	int		i;
+	int		indexes[2];
 	char	*trimmed;
 
-	start = num_setter(s1, set, 0, (ft_strlen(s1) - 1))[0];
-	end = num_setter(s1, set, 0, (ft_strlen(s1) - 1))[1];
-	if (start == end)
+	start = num_setter(s1, set, indexes)[0];
+	end = num_setter(s1, set, indexes)[1];
+	if (start > end)
 		return (blank_handler());
 	trimmed = (char *)malloc(end - start + 2);
 	if (trimmed == NULL)
