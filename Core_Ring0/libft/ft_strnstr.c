@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *main, const char *sub, size_t len)
 
 	i = 0;
 	subsize = 0;
-	if (main == sub && len >= (size_t)ft_strlen(main))
+	if ((main == sub && len >= ft_strlen(main)) || *sub == 0)
 		return ((char *)main);
 	while (sub[subsize])
 		subsize++;
