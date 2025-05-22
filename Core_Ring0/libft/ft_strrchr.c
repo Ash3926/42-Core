@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 16:32:01 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/08 16:50:24 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:23:21 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *str, int c)
 	int		i;
 
 	i = 0;
-	c = c % 256
+	c = c % 256;
 	holder_c = NULL;
 	while (str[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:46:35 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/14 13:06:51 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:32:26 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -60,7 +60,7 @@ static char	*split_helper(char const *s, int i, int nexsize)
 	return (curr_str);
 }
 
-static void	*free_words(char **arr, int i)
+static void	*free_arr(char **arr, int i)
 {
 	int	curr;
 

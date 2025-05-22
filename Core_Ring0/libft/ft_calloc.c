@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 18:33:26 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/08 19:12:00 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:25:55 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,6 +24,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	array = malloc(nmemb * size);
 	if (array == NULL)
 		return (NULL);
-	ft_memset(array, 0, nmemb * size);
+	ft_bzero(array, nmemb * size);
 	return (array);
 }
