@@ -9,10 +9,11 @@
 /*   Updated: 2025/05/14 19:18:38 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int	ft_strlen(const char *c)
+size_t	ft_strlen(const char *c)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (c[len])
