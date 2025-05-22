@@ -42,7 +42,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int				size;
 
 	i = 0;
-	if (len <= 0 || ((int)start > ft_strlen(s)))
+	if (len <= 0 || ((size_t)start > ft_strlen(s)))
 		return (blank_handler());
 	size = size_set(s, start, len);
 	sub = (char *)malloc(size + 1);
