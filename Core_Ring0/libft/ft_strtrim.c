@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 18:24:51 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/14 12:48:11 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 19:23:51 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -57,8 +57,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		indexes[2];
 	char	*trimmed;
 
-	start = num_setter(s1, set, indexes)[0];
-	end = num_setter(s1, set, indexes)[1];
+	if (!s1 || !set)
+		return (NULL);
+	num_setter(s1, set, indexes);
+	start = indexes[0];
+	end = indexes[1];
 	if (start > end)
 		return (blank_handler());
 	trimmed = (char *)malloc(end - start + 2);
@@ -67,9 +70,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	while (start <= end)
 	{
-		trimmed[i] = (char)s1[start];
-		start++;
-		i++;
+		trimmed[i++] = (char)s1[start++];
 	}
 	trimmed[i] = 0;
 	return (trimmed);

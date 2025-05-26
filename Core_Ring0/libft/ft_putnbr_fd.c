@@ -6,13 +6,15 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:31:18 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/14 13:19:12 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:52:29 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (fd < 0)
+		return ;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);

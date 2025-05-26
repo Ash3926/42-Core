@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:27:37 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 14:30:45 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:51:59 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,6 +15,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	char	end;
 
+	if (fd < 0)
+		return ;
 	end = '\n';
 	while (*s)
 	{

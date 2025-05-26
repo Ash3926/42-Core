@@ -6,13 +6,15 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:26:16 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 14:27:21 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:51:44 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (fd < 0)
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

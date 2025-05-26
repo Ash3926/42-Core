@@ -6,12 +6,13 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 14:21:44 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/11 14:25:35 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:51:23 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (fd >= 0)
+		write(fd, &c, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:58:59 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/22 20:15:27 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/25 18:56:17 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,7 +27,7 @@ static int	size_set(char const *s, unsigned int start, size_t len)
 
 	n = (unsigned int)len;
 	size = 0;
-	while (size < len && s[start])
+	while (size < n && s[start])
 	{
 		start++;
 		size++;
@@ -42,7 +42,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int				size;
 
 	i = 0;
-	if (len <= 0 || ((size_t)start > ft_strlen(s)))
+	if (!s || len <= 0 || ((size_t)start > ft_strlen(s)))
 		return (blank_handler());
 	size = size_set(s, start, len);
 	sub = (char *)malloc(size + 1);

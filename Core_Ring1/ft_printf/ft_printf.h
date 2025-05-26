@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 18:19:25 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/25 19:00:23 by asolomon         ###   ########.fr       */
+/*   Created: 2025/05/22 21:11:14 by asolomon          #+#    #+#             */
+/*   Updated: 2025/05/22 21:13:48 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_lstsize(t_list *lst)
-{
-	int		len;
-	t_list	*next_pointer;
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-	len = 0;
-	next_pointer = lst;
-	while ((void *)next_pointer)
-	{
-		len++;
-		next_pointer = next_pointer->next;
-	}
-	return (len);
-}
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdarg.h>
+
+int	ft_printf(const char *, ...);
+
+#endif
