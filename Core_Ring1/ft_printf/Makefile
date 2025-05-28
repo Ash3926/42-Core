@@ -10,7 +10,8 @@ SRCS = ft_printf.c \
        hexa_ui.c \
        hexa_v.c \
        ft_putchar_fd.c \
-       ft_putstr_fd.c
+       ft_putstr_fd.c \
+       ft_strdup.c
 
 OBJS = $(SRCS:.c=.o)
 

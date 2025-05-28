@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:11:14 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/28 17:42:40 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:19:33 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_toupper(char *c);
 char	*ft_unsigneditoa(unsigned int c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+char	*ft_strdup(const char *str);
 
 #endif

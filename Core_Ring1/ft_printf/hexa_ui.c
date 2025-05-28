@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexa_converters.c                                  :+:      :+:    :+:   */
+/*   hexa_ui.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 15:06:07 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/28 16:00:15 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:26:49 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -48,6 +48,8 @@ char	*hexa_ui(unsigned int c, char flag)
 
 	i = 0;
 	hexcode = "0123456789abcdef";
+	if (c == 0)
+		return (ft_strdup("0"));
 	str = malloc(strsize(c) + 1);
 	if (!str)
 		return (NULL);

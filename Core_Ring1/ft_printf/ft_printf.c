@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 21:15:19 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/28 17:50:58 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:29:28 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -32,7 +32,7 @@ static int	parse_input(char c, va_list args)
 	else if (c == '%')
 		val = &("%");
 	if (!val)
-		return (0);
+		val = "(null)";
 	ft_putstr_fd(val, 1);
 	size = ft_strlen((const char *)val);
 	if (c != 'c' && c != 's' && c != '%')
@@ -74,6 +74,17 @@ int main()
 	int b = printf("Hello %s, I scored %i%% in school.\n Address: %p\n", 
 	hey, -2309240, (void *)hey);
 
+	printf("Printed characters: %d, %d\n", a, b);
+}
+*/
+
+/* TEST 2
+#include <stdio.h>
+int main()
+{
+	//char	*hey = NULL;
+	//int a = ft_printf("%s \n %p %p \n %x \n", hey, (void *)0, (void *)0, 0);
+	//int b = printf("%s \n %p %p \n %x \n", hey, (void *)0, (void *)0, 0);
 	printf("Printed characters: %d, %d\n", a, b);
 }
 */

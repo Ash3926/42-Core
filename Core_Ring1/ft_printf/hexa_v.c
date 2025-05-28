@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 15:06:07 by asolomon          #+#    #+#             */
-/*   Updated: 2025/05/28 16:40:28 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:20:01 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -50,6 +50,8 @@ char	*hexa_v(void *addr)
 	i = 0;
 	intaddr = (uintptr_t)addr;
 	hexcode = "0123456789abcdef";
+	if (!addr)
+		return (ft_strdup("(nil)"));
 	str = malloc(strsize(intaddr) + 3);
 	if (!str)
 		return (NULL);
