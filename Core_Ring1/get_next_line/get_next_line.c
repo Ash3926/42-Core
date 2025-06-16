@@ -11,14 +11,50 @@
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+ssize_t	ft_readnext(char *buf, int fd)
 {
-	char	buffer[BUFFER_SIZE];
 	ssize_t	bytes;
 
-	bytes = read(fd, buffer, 1);
-	if (bytes <= 0)
-		return (NULL);
-	while (bytes == 1)
-	{
+	buf = ft_calloc(BUFFER_SIZE + 1, 1);
+	if (!buf)
+		return (0);
+	bytes = read(fd, buf, BUFFER_SIZE);
+	if (bytes > 0)
+		return (bytes);
+	return (0);
+}
 
+ssize_t	ft_findend(char *buf)
+{
+	ssize_t	i;
+
+	i = 0;
+	while (buf[i] && buf[i] != '\n' && i < BUFFER_SIZE)
+	{
+		i++;
+	}
+	if (buf[i] == '\n')
+		return (i);
+	else
+		return (0);
+}
+
+char	*get_next_line(int fd)
+{
+	char	*main;
+	char	*buffer;
+	ssize_t	bytes;
+	ssize_t i;
+
+	main = NULL;
+	if (fd < 0)
+		return (NULL);
+	bytes = ft_readnext(buffer, fd);
+	if (bytes < 0)
+		return (NULL);
+	i = ft_findend(buffer);
+	while (i != 0)
+	{
+		
+	}
+	return (ft_strjoin(main, buf, i)); //ft_strjoin to be edited to max add i bytes from buf
