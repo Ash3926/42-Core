@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:43:52 by asolomon          #+#    #+#             */
-/*   Updated: 2025/06/17 20:06:14 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/06/17 20:52:41 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -26,7 +26,7 @@ ssize_t	ft_findend(char *buffer)
 	i = 0;
 	while (i < BUFFER_SIZE && buffer[i] && buffer[i] != '\n')
 		i++;
-	if (i == '\n' || (buffer[i] == 0))
+	if (buffer[i] == '\n' || (buffer[i] == 0))
 		return (i);
 	return (0);
 }
@@ -41,9 +41,13 @@ char	*get_next_line(int fd)
 	final = NULL;
 	if (i)
 	{
-		bytes = ft_findend(buffer + i);
+		bytes = ft_findend(buffer + i + 1);
 		if (bytes)
-			return (ft_cpy(buffer, i, bytes));
+		{
+			final = ft_cpy(buffer, i, bytes);
+			i += (bytes + 1);
+			return (final);
+		}
 		else
 			final = ft_cpy(buffer, i, bytes);
 	}
@@ -52,10 +56,12 @@ char	*get_next_line(int fd)
 	bytes = ft_readnext(buffer, fd);
 	while (bytes > 0 && i == 0)
 	{
+		i = ft_findend(buffer);
+		if (i)
+			break;
 		final = ft_strjoin(final, buffer, bytes);
 		bytes = ft_readnext(buffer, fd);
-		i = ft_findend(buffer);
-	}
+	}	
 	final = ft_strjoin(final, buffer, i);
 	return (final);
 }
