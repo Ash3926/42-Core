@@ -63,7 +63,7 @@ int	main(int argc, char *argv[])
 	while (i < len)
 	{
 		out = get_next_line(fd);
-		printf("Line %d: %s", i, out);
+		printf("Line %d: %s $", i + 1, out);
 		i++;
 	}
 	return (0);

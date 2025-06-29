@@ -73,6 +73,7 @@ char	*ft_strjoin(char const *s1, char const *s2, ssize_t to_join)
 	while (s1[i++])
 		final[i - 1] = s1[i - 1];
 	j = 0;
+	i -= 1;
 	while (s2[j] && j < to_join)
 		final[i++] = s2[j++];
 	final[i] = 0;
@@ -99,8 +100,15 @@ char	*ft_cpy(char *buffer, ssize_t start, ssize_t size)
 {
 	char	*final;
 	int		i;
+	int		malloc_size;
 
-	final = (char *)malloc(size + 1);
+	malloc_size = size;
+	if (size == 0)
+	{
+		start -= 1;
+		malloc_size += 1;
+	}
+	final = (char *)malloc(malloc_size + 1);
 	if (!final)
 		return (final);
 	i = 0;

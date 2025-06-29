@@ -17,7 +17,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+#ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
+#endif
 
 char	*get_next_line(int fd);
 void	ft_bzero(void *str, size_t n);

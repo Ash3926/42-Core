@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
+#include <stdio.h>
 
 ssize_t	ft_readnext(char *buffer, int fd)
 {
 	ssize_t	bytes;
 
 	bytes = read(fd, buffer, BUFFER_SIZE);
+	if (bytes < 0)
+		return (0);
 	return (bytes);
 }
 
@@ -26,42 +29,47 @@ ssize_t	ft_findend(char *buffer)
 	i = 0;
 	while (i < BUFFER_SIZE && buffer[i] && buffer[i] != '\n')
 		i++;
-	if (buffer[i] == '\n' || (buffer[i] == 0))
-		return (i);
-	return (0);
+	if (buffer[i] == '\n' && (i == 0))
+		return (1);
+	if (i == BUFFER_SIZE)
+		return (0);
+	return (i);
 }
 
 char	*get_next_line(int fd)
 {
 	static char		buffer[BUFFER_SIZE];
-	static ssize_t	i;
+	ssize_t			start;
+	static ssize_t	end;
 	char			*final;
 	ssize_t			bytes;
 
 	final = NULL;
-	if (i)
+	start = 0;
+	if (end && end != (BUFFER_SIZE))
 	{
-		bytes = ft_findend(buffer + i + 1);
-		if (bytes)
+		start = end;
+		end = ft_findend(buffer + end + 1);
+		if (end)
 		{
-			final = ft_cpy(buffer, i, bytes);
-			i += (bytes + 1);
+			final = ft_cpy(buffer, start, end);
+			end += start + 1;
 			return (final);
 		}
 		else
-			final = ft_cpy(buffer, i, bytes);
+			final = ft_cpy(buffer, start, end);
 	}
-	i = 0;
+	end = 0;
 	ft_bzero(buffer, BUFFER_SIZE);
 	bytes = ft_readnext(buffer, fd);
-	while (bytes > 0 && i == 0)
+	while (bytes > 0 && end == 0)
 	{
-		i = ft_findend(buffer);
-		if (i)
+		end = ft_findend(buffer);
+		if (end)
 			break;
 		final = ft_strjoin(final, buffer, bytes);
 		bytes = ft_readnext(buffer, fd);
 	}	
-	final = ft_strjoin(final, buffer, i);
+	final = ft_strjoin(final, buffer, (end - start));
 	return (final);
 }
