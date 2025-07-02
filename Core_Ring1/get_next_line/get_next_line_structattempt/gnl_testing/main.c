@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:37:30 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/02 19:52:17 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/02 23:06:40 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -46,6 +46,8 @@ int	main(int argc, char *argv[])
 	char	*out;
 	int		i;
 	int		len;
+	//char	buffer[100];
+	//ssize_t		bytes;
 
 	if (argc != 3)
 	{
@@ -60,6 +62,9 @@ int	main(int argc, char *argv[])
 	}
 	len = ft_atoi(argv[2]);
 	i = 0;
+	//bytes = read(fd, buffer, 100);
+	//buffer[bytes] = 0;
+	//printf("Full: %s", buffer);
 	while (i < len)
 	{
 		printf("Call %d\n", i + 1);

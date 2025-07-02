@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 18:36:23 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/02 22:13:02 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:55:25 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -38,7 +38,6 @@ char	*start_handler(char *s2, ssize_t start, ssize_t end)
 		final[i++] = s2[start++];
 	}
 	final[i] = 0;
-	printf("Last check before return: %s\n", final);
 	return (final);
 }
 
@@ -49,11 +48,7 @@ char	*ft_strjoin(char *s1, char *s2, ssize_t start, ssize_t end)
 	ssize_t		j;
 
 	if (!s1)
-	{
-		printf("starting string\n");
 		return (start_handler(s2, start, end));
-	}
-	printf("cont?\n");
 	if (end == -1)
 		end = BUFFER_SIZE;
 	i = ft_strlen(s1) + (end - start);
