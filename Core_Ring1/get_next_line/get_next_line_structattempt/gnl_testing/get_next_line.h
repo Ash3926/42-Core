@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:52:33 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/02 18:54:46 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:44:54 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
@@ -21,6 +21,8 @@
 #endif
 
 char    *get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2, ssize_t start, ssize_t end);
+void    ft_bzero(char *str, ssize_t n);
 
 typedef struct	s_box
 {
