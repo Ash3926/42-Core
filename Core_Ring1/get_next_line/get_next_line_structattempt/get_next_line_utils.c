@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 18:36:23 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/02 19:19:00 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:36:13 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -58,7 +58,7 @@ char	*ft_strjoin(char *s1, char *s2, ssize_t start, ssize_t end)
 		final[j] = s1[j];
 		j++;
 	}
-	while (j < i && start < end)
+	while (j < i && start < end + 1)
 		final[j++] = s2[start++];
 	final[j] = 0;
 	return (final);

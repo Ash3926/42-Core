@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:57:05 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/02 23:05:53 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:51:12 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -20,7 +20,7 @@ ssize_t	find_end(t_box *new, ssize_t bytesRead)
 	{
 		while ((new->space[end] != 0) && (new->space[end] != '\n'))
 			end++;
-		if (end > new->start)
+		if (end >= new->start)
 			break ;
 		else
 			end++;
@@ -30,6 +30,7 @@ ssize_t	find_end(t_box *new, ssize_t bytesRead)
 	return (-1);
 }
 
+#include <stdio.h>
 t_box	*read_nl(t_box *curr_end, int fd)
 {
 	t_box	*new;
@@ -91,6 +92,7 @@ char	*get_next_line(int fd)
 	if (!front)
 		front = read_nl(front, fd);
 	curr_end = front;
+	printf("Curr_end : %zi\n",curr_end->end);
 	while (curr_end->end == -1)
 		read_nl(curr_end, fd);
 	while (front != curr_end)

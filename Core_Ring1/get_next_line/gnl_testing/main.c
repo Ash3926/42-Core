@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:37:30 by asolomon          #+#    #+#             */
-/*   Updated: 2025/06/17 20:51:20 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/03 21:49:51 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -60,10 +60,11 @@ int	main(int argc, char *argv[])
 	}
 	len = ft_atoi(argv[2]);
 	i = 0;
-	while (i < len)
+	while (i <= len)
 	{
 		out = get_next_line(fd);
-		printf("Line %d: %s $", i + 1, out);
+		printf("Line %d: %s$\n", i + 1, out);
+		free(out);
 		i++;
 	}
 	return (0);
