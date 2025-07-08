@@ -56,7 +56,7 @@ ssize_t	*pointer_assign(ssize_t pointers[3], char *buffer, int fd, int flag)
 
 char	*get_next_line(int fd)
 {
-	static char				buffer[BUFFER_SIZE];
+	static char				buffer[BUFFER_SIZE + 1];
 	static ssize_t			pointers[3];
 	char					*final;
 
