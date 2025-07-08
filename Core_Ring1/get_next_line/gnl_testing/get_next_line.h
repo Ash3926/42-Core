@@ -22,7 +22,7 @@
 # endif
 
 char	*get_next_line(int fd);
-char    *ft_bzero(void *str, size_t n);
+char	*ft_bzero(void *str, size_t n);
 char	*ft_cpy(char *buffer, ssize_t start, ssize_t end, ssize_t bytes);
 char	*ft_strjoin(char const *s1, char const *s2, ssize_t to_join);
 

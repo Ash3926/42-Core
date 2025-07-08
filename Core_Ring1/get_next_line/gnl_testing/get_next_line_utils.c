@@ -59,12 +59,13 @@ char	*ft_strjoin(char const *s1, char const *s2, ssize_t to_join)
 	free((void *)s1);
 	return (final);
 }
-#include <stdio.h>
+
 char	*ft_cpy(char *buffer, ssize_t start, ssize_t end, ssize_t bytes)
 {
 	char		*final;
 	ssize_t		i;
 	ssize_t		malloc_size;
+
 	if (end == -1)
 		malloc_size = bytes - start;
 	else
@@ -86,8 +87,8 @@ char	*ft_cpy(char *buffer, ssize_t start, ssize_t end, ssize_t bytes)
 char	*ft_bzero(void *str, size_t n)
 {
 	size_t			erased;
-	char	*holder;
-	
+	char			*holder;
+
 	if (str == NULL)
 		return (NULL);
 	erased = 0;
