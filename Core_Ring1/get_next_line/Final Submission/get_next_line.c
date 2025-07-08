@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:43:52 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/08 15:55:35 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:09:20 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -56,7 +56,7 @@ ssize_t	*pointer_assign(ssize_t pointers[3], char *buffer, int fd, int flag)
 
 char	*get_next_line(int fd)
 {
-	static char				buffer[BUFFER_SIZE + 1];
+	static char				buffer[BUFFER_SIZE];
 	static ssize_t			pointers[3];
 	char					*final;
 

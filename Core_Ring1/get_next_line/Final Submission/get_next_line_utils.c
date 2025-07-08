@@ -6,7 +6,7 @@
 /*   By: asolomon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 19:28:49 by asolomon          #+#    #+#             */
-/*   Updated: 2025/07/03 22:12:45 by asolomon         ###   ########.fr       */
+/*   Updated: 2025/07/08 18:09:08 by asolomon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -20,6 +20,8 @@ static char	*null_handler(char const *s1, char const *s2, ssize_t to_join)
 	{
 		i = 0;
 		final = malloc(to_join + 1);
+		if (!final)
+			return (NULL);
 		while (i < to_join)
 		{
 			final[i] = s2[i];
@@ -67,7 +69,7 @@ char	*ft_cpy(char *buffer, ssize_t start, ssize_t end, ssize_t bytes)
 	ssize_t		malloc_size;
 
 	if (end == -1)
-		malloc_size = bytes - start;
+		malloc_size = bytes - start - 1;
 	else
 		malloc_size = end - start;
 	final = (char *)malloc(malloc_size + 1);
